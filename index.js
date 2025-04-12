@@ -11,8 +11,9 @@ let chunkIndex = 1;
 let currentUserType = 'free'; // se puede cambiar con cada solicitud
 
 app.post('/request-video', (req, res) => {
-  currentUserType = req.body.userType;
-  res.json({ message: `Inicio transmisión para ${currentUserType}` });
+    const { usuario, video } = req.body;
+    console.log(`Simulando usuario: ${usuario}, video: ${video}`);
+    res.json({ message: `Se inició la simulación para ${usuario} con el video ${video}` });
 });
 
 app.get('/stream', (req, res) => {
